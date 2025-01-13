@@ -18,6 +18,9 @@ class DOM {
         project.add(todo1);
         project.add(todo2);
         this.projects.push(project);
+        this.projects.push(project);
+        this.projects.push(project);
+        this.projects.push(project);
     }
 
     showDialog() {
@@ -27,7 +30,7 @@ class DOM {
                 <label>Title: <input type="text" id="title"></label>
             </div>
             <div>
-                <label>Description: <input type="text" id="description"></label>
+                <label>Description: <textarea id="description"></textarea></label>
             </div>
             <div>
                 <label>Due Date: <input type="date" id="dueDate"></label>
@@ -76,11 +79,21 @@ class DOM {
         editBtn.textContent = "Edit project";
         this.projectDialog.appendChild(editBtn);
 
+        const deleteBtn = document.createElement("button")
+        deleteBtn.textContent = "Delete project";
+        this.projectDialog.appendChild(deleteBtn);
+
         editBtn.addEventListener('click', () => {
             project.title = this.projectDialog.querySelector("input").value;
             this.display();
             this.projectDialog.close();
         }); 
+
+        deleteBtn.addEventListener('click', () => {
+            this.projects.splice(this.projects.indexOf(project), 1);
+            this.display();
+            this.projectDialog.close();
+        })
     }
 
     createProject() {
@@ -98,10 +111,12 @@ class DOM {
         //add event listener to container which shows more details (in a dialog?)
         
         const title = document.createElement('p');
+        title.classList.add('task-title');
         title.textContent = todo.title;
         container.appendChild(title);
 
         const date = document.createElement('p');
+        date.classList.add('task-date');
         date.textContent = `${todo.dueDate.getMonth() + 1}/${todo.dueDate.getDate() + 1}`;
         container.appendChild(date);
 
@@ -114,7 +129,7 @@ class DOM {
         btn.textContent = `Edit ${todo.title}`;
 
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
+        deleteBtn.textContent = `Delete ${todo.title}`;
         deleteBtn.addEventListener('click', () => {
             project.remove(todo);
             this.display();
@@ -198,6 +213,7 @@ class DOM {
         });
 
         const addTask = document.createElement('button');
+        addTask.classList.add('add-task');
         addTask.textContent = '+';
         addTask.addEventListener('click', () => this.addTodo(project));
         container.appendChild(addTask);
