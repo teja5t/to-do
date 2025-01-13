@@ -3,7 +3,7 @@ let Todo = function (title, description, dueDate, color, completed) {
 
     todo.title = title;
     todo.description = description;
-    todo.dueDate = dueDate;
+    todo.dueDate = dueDate instanceof Date ? dueDate : new Date(dueDate);
     todo.color = color;
     todo.completed = completed;
 

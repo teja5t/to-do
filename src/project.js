@@ -1,7 +1,6 @@
-let Project = function (title) {
+let Project = function () {
     let project = {};
 
-    project.title = title;
     project.tasks = [];
 
     project.add = (todo) => {
