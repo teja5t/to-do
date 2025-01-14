@@ -1,6 +1,3 @@
-body {
-}
-
 * {
     color: white;
     font-size: 1rem;
@@ -16,6 +13,7 @@ h1 {
 .projects {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -35,6 +33,8 @@ h1 {
 
 .task-title {
     text-wrap: 1;
+    max-width: 300px;
+    word-wrap: break-word;
 }
 
 .task-date {
@@ -81,6 +81,13 @@ dialog[open] {
     font-size: 2rem;
 }
 
+
+.close-dialog,
+.close-project-dialog {
+    border: none;
+    font-size: 1.5rem;
+}
+
 h2 {
     font-size: 2rem;
 }
@@ -92,6 +99,15 @@ dialog button,
     margin-left: 10px;
 }
 
+.add-project {
+    position: fixed; /* Fixed position for sticking to a corner */
+    bottom: 20px; /* Distance from the bottom edge */
+    right: 20px; /* Distance from the right edge */
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional shadow for style */
+}
+
 dialog > * {
     margin: 10px;
 }
@@ -100,5 +116,16 @@ input, textarea {
     border: solid white 2px;
     border-radius: 5px;
 }
+
+.textarea-container {
+    display: flex;
+    align-items:start;
+}
+
+textarea {
+    margin-left: 5px;
+}
+
+
 
 
