@@ -13,8 +13,8 @@ class DOM {
             defaultProject.title = "default";
             const date1 = new Date('2025-01-12');
             const date2 = new Date('2025-07-13');
-            const todo1 = Todo("Practice", "Scales, Bach, Brahms", date1, "#FFC0CB", "true");
-            const todo2 = Todo("Finish To-do Project", "store data, dom, css", date2, "#ffffff", "false");
+            const todo1 = Todo("Practice", "Scales, Bach, Brahms", date1, "#FFC0CB", true);
+            const todo2 = Todo("Finish To-do Project", "store data, dom, css", date2, "#ffffff", false);
             defaultProject.add(todo1);
             defaultProject.add(todo2);
             this.projects.push(defaultProject);
